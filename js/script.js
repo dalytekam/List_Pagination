@@ -3,16 +3,13 @@ Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
 
-// Add variables that store DOM elements you will need to reference and/or manipulate
+// Set reference to the DOM elements
 const page = document.querySelector(".page");
 const studentsList = document.querySelector(".student-list");
 const pageHeader = document.querySelector(".page-header");
 const allStudents = studentsList.querySelectorAll("li");
 const studentsPerPage = 10;
 let pageNumber = 1; // Default value of pageNumber
-// Create a function to hide all of the items in the list excpet for the ten you want to show
-// Tip: Keep in mind that with a list of 54 studetns, the last page will only display four
-// default value of page number
 
 function showPage(list, pageNumber) {
   // Get an array from the Node collection to be able to apply the "indexOf" method
@@ -31,13 +28,14 @@ function showPage(list, pageNumber) {
   });
 }
 
-// Create and append the pagination links - Creating a function that can do this is a good approach
+// Create a function to append the pagination links
 
 function appendPaginationLinks(list) {
   // Check if there is a node after the ul students list and remove it
   if (studentsList.nextElementSibling) {
     studentsList.nextElementSibling.remove();
   }
+  // Compute the necessary numbers of links
   let studentsListLength = list.length;
   let numberOfLinks = Math.ceil(studentsListLength / studentsPerPage);
   // Create the container of the pagination links
@@ -58,6 +56,7 @@ function appendPaginationLinks(list) {
           </li>
 `;
   }
+  // Append the pagination container  to the page
   page.appendChild(paginationContainer);
 
   const paginationLinks = ul.querySelectorAll("a");
@@ -75,10 +74,7 @@ function appendPaginationLinks(list) {
     showPage(allStudents, pageNumber);
   });
 }
+// Call the function that appends the pagination links
 appendPaginationLinks(allStudents);
 // Display the first ten elemenst on the list
 showPage(allStudents, pageNumber);
-
-// Add functionality to the pagination buttons so that they show and hide the correct items
-
-// Tip: If you created a function above to show/hide list items, it could be helpful here
