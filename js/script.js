@@ -68,7 +68,7 @@ function appendPaginationLinks(list) {
     paginationLinks.forEach(link => {
       link.classList.remove("active");
     });
-    // Get pageNumber value  from the click on the link by getting the textContent
+    // Get pageNumber value  from the click on the link by getting the textContent of the clicked link
     pageNumber = event.target.textContent;
     event.target.classList.add("active");
     event.preventDefault();
