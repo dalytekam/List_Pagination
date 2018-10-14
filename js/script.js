@@ -66,13 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
       paginationLinks[0].className = "active";
       // Add a click listener to each link by event delegation
       ul.addEventListener("click", event => {
+        // Loop over the pagination links and remove the active class
         paginationLinks.forEach(link => {
           link.classList.remove("active");
         });
         // Get pageNumber value  from the click on the link by getting the textContent of the clicked link
         pageNumber = event.target.textContent;
+        // Add the active class to the clicked link
         event.target.classList.add("active");
         event.preventDefault();
+        // Show the right students
         showPage(allStudents, pageNumber);
       });
     }
